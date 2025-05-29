@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Dados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulário de Dados</h2>
+        <form id="dadosForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" required>
+
+            <label for="posicao">Posição:</label>
+            <input type="text" id="posicao" required>
+
+            <label for="empresa">Empresa:</label>
+            <input type="text" id="empresa" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div id="resultado" class="resultado" style="display: none;">
+            <h3>Dados Inseridos:</h3>
+            <p><strong>1. Nome:</strong> <span id="r-nome"></span></p>
+            <p><strong>2. Posição:</strong> <span id="r-posicao"></span></p>
+            <p><strong>3. Empresa:</strong> <span id="r-empresa"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("dadosForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // Impede envio padrão
+
+            const nome = document.getElementById("nome").value;
+            const posicao = document.getElementById("posicao").value;
+            const empresa = document.getElementById("empresa").value;
+
+            document.getElementById("r-nome").innerText = nome;
+            document.getElementById("r-posicao").innerText = posicao;
+            document.getElementById("r-empresa").innerText = empresa;
+
+            document.getElementById("resultado").style.display = "block";
+        });
+    </script>
+</body>
+</html>
