@@ -4,16 +4,16 @@ public class Main {
     public static void main(String[] args) {
         port(4567);
 
-        // Servir arquivos estáticos (HTML e CSS)
-        staticFiles.location("/public"); // Pasta 'resources/public'
+        
+        staticFiles.location("/public"); 
 
-        // Rota para exibir formulário (se necessário)
+        
         get("/", (req, res) -> {
             res.redirect("/index.html");
             return null;
         });
 
-        // Rota que recebe os dados via POST
+        
         post("/enviar", (req, res) -> {
             String nome = req.queryParams("nome");
             String posicao = req.queryParams("posicao");

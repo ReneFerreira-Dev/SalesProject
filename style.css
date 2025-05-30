@@ -1,6 +1,11 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
+    background-image: url('6b0c7770-salesforce-logo-1024x489.jpg.webp');       /* Caminho da imagem */
+    background-size: cover;                   /* Preenche a tela toda */
+    background-position: center center;       /* Centraliza */
+    background-repeat: no-repeat;             /* Não repete */
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     padding: 40px;
