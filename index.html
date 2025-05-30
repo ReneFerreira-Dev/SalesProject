@@ -22,25 +22,47 @@
         </form>
 
         <div id="resultado" class="resultado" style="display: none;">
+            <h3>Dados Inseridos:</h3>
             <p><strong>1. Nome:</strong> <span id="r-nome"></span></p>
             <p><strong>2. Posição:</strong> <span id="r-posicao"></span></p>
             <p><strong>3. Empresa:</strong> <span id="r-empresa"></span></p>
+
+            <button id="btnCopiar" class="copy-button">Copiar Dados</button>
+            <p id="copiado" style="color: green; display: none;">Dados copiados!</p>
         </div>
     </div>
 
     <script>
-        document.getElementById("dadosForm").addEventListener("submit", function(e) {
-            e.preventDefault(); // Impede envio padrão
+        const form = document.getElementById("dadosForm");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
 
             const nome = document.getElementById("nome").value;
             const posicao = document.getElementById("posicao").value;
             const empresa = document.getElementById("empresa").value;
 
+            // Mostra os dados
             document.getElementById("r-nome").innerText = nome;
             document.getElementById("r-posicao").innerText = posicao;
             document.getElementById("r-empresa").innerText = empresa;
 
             document.getElementById("resultado").style.display = "block";
+            document.getElementById("copiado").style.display = "none";
+
+            // Limpa os campos do formulário
+            form.reset();
+        });
+
+        document.getElementById("btnCopiar").addEventListener("click", function() {
+            const nome = document.getElementById("r-nome").innerText;
+            const posicao = document.getElementById("r-posicao").innerText;
+            const empresa = document.getElementById("r-empresa").innerText;
+
+            const texto = `1. Nome: ${nome}\n2. Posição: ${posicao}\n3. Empresa: ${empresa}`;
+            navigator.clipboard.writeText(texto).then(() => {
+                document.getElementById("copiado").style.display = "block";
+            });
         });
     </script>
 </body>

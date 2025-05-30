@@ -36,12 +36,13 @@ input {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #ff0000;
-    color: rgb(5, 5, 5);
+    background-color: #007bff;
+    color: white;
     font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -52,4 +53,12 @@ button:hover {
     margin-top: 20px;
     padding-top: 10px;
     border-top: 1px solid #ddd;
+}
+
+.copy-button {
+    background-color: #28a745;
+}
+
+.copy-button:hover {
+    background-color: #218838;
 }
